@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.IO;
+using TextFinder.Models;
 
 namespace TextFinder
 {
     class Program
     {
         static void Main(string[] args)
-        {
+        {            
             //Console.WriteLine("Enter Folder Path:");
             //string path = Console.ReadLine();
 
