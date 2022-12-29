@@ -21,6 +21,7 @@ namespace TextFinder.Models
         public virtual DbSet<FileNotExistException> FileNotExistExceptions { get; set; }
         public virtual DbSet<MatchNotFoundException> MatchNotFoundExceptions { get; set; }
         public virtual DbSet<SuccessfullyUpdatedLog> SuccessfullyUpdatedLogs { get; set; }
+        public virtual DbSet<TranslationData> TranslationDatas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -98,6 +99,20 @@ namespace TextFinder.Models
                 entity.Property(e => e.CreatedOn)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.FileName).IsRequired();
+
+                entity.Property(e => e.InputText).IsRequired();
+
+                entity.Property(e => e.TranslatedText).IsRequired();
+            });
+
+            modelBuilder.Entity<TranslationData>(entity =>
+            {
+                entity.Property(e => e.Control)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.FileName).IsRequired();
 

@@ -26,17 +26,20 @@ namespace TextFinder
             //Console.WriteLine($"End time {endDate}");
             //Console.WriteLine($"Time diff {endDate.Subtract(startDate).TotalMilliseconds}");
 
-            Console.WriteLine("Enter CSV File Path:");
-            string CSVPath = Console.ReadLine();
-            if (File.Exists(CSVPath))
-            {
-                TextUpdater textUpdater = new TextUpdater();
-                textUpdater.UpdateFiles(CSVPath);
-            }
-            else
-            {
-                Console.WriteLine("Invalid path for CSV.");
-            }
+            //Console.WriteLine("Enter CSV File Path:");
+            //string CSVPath = Console.ReadLine();
+            //if (File.Exists(CSVPath))
+            //{
+            //    TextUpdater textUpdater = new TextUpdater();
+            //    textUpdater.UpdateFiles(CSVPath);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Invalid path for CSV.");
+            //}
+
+            TextUpdater textUpdater = new TextUpdater();
+            textUpdater.UpdateFiles("");
 
         }
     }

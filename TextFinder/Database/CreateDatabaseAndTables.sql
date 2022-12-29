@@ -15,6 +15,7 @@ CREATE TABLE [MatchNotFoundExceptions]
 	[Control] VARCHAR(100) NOT NULL,
 	[InputText] NVARCHAR(MAX) NOT NULL,
 	[TranslatedText] NVARCHAR(MAX) NOT NULL,
+	[IsUpdate] bit,
 	[CreatedOn] DATETIME DEFAULT (GETDATE()) NOT NULL
 );
 GO
@@ -58,6 +59,17 @@ CREATE TABLE [ExceptionLogs]
 	[TranslatedText] NVARCHAR(MAX) NOT NULL,
 	[CreatedOn] DATETIME DEFAULT (GETDATE()) NOT NULL
 );
+GO
+
+CREATE TABLE [dbo].[Translation]
+(
+	[TranslationId] [int] PRIMARY KEY IDENTITY(1,1),
+	[FileName] [nvarchar](500) NOT NULL,
+	[LineNo] [int] NOT NULL,
+	[Control] [nvarchar](50) NOT NULL,
+	[InputText] [nvarchar](1000) NOT NULL,
+	[TranslatedText] [nvarchar](1000) NOT NULL
+)
 GO
 
 SELECT * FROM dbo.MatchNotFoundExceptions
